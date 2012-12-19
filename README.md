@@ -14,9 +14,24 @@ var b = require('baudio')();
 var tune = require('tune');
 
 // hungarian dance no5 melody
-var hungarian = tune('A D5 F D C# D E D'.split(' '));
+var hungarian = tune('A5 A0 A0 D5 F5 A0 A0 D5 C#5 A0 A0 D5 E5 D5 A0 A0'.split(' '));
 
 b.push(hungarian);
+b.play();
+```
+
+```js
+var b = require('baudio')();
+var tune = require('tune');
+
+// soundgarden black hole sun :|
+var blackhole = tune(String(
+  'A4 E4 A5 D5 A5 E4 A4 C4 E4 A5 D5 A0 A0 A0 ' +
+  'G3 D4 G4 D5 G4 D4 E3 F#3 C#4 F#4 C#5 A0 A0 A0 ' +
+  'E3 F3 C4 F4 A#5 F4 C4 F3 E3 D4 E4 B5 A0 A0 A0'
+).split(' '));
+
+b.push(blackhole);
 b.play();
 ```
 

@@ -1,0 +1,43 @@
+{
+  "name": "tune",
+  "description": "Tune up baudio",
+  "version": "0.1.0",
+  "homepage": "https://github.com/shama/tune",
+  "author": {
+    "name": "Kyle Robinson Young",
+    "email": "kyle@dontkry.com",
+    "url": "http://dontkry.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shama/tune.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shama/tune/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/shama/tune/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/tune",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "tap ./test"
+  },
+  "dependencies": {
+    "plucky": "~0.1.1"
+  },
+  "devDependencies": {
+    "baudio": "*",
+    "tap": "~0.3.3"
+  },
+  "keywords": [
+    "baudio",
+    "audio",
+    "music"
+  ]
+}

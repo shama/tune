@@ -41,7 +41,7 @@ b.play();
 var tune = require('tune');
 ```
 
-## var t = tune(notes)
+## var t = tune(notes[, options])
 Return a [baudio](http://github.com/substack/baudio)-compatible
 function using [plucky](http://github.com/substack/plucky) given an array of
 `notes`.
@@ -49,8 +49,14 @@ function using [plucky](http://github.com/substack/plucky) given an array of
 Some example notes are: `C4`, `Db`, `E6`, `F#3`. The octave defaults to `4` and
 will be further set to whatever the last specified octave was.
 
+`options` are:
+* `duration` [`1/4`] - duration of note
+* `repeat` [`true`] - if the tune should repeat
+* `volume` [`1.0`] - volume to play the tune: `0.0 - 1.0`
+
 ## Release History
-0.1.0 - initial release
+* 0.1.1 - Better API interface. Add volume option.
+* 0.1.0 - initial release
 
 ## License
 Copyright (c) 2012 Kyle Robinson Young  

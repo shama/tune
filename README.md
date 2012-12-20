@@ -12,40 +12,40 @@ You also need to install SoX:
 ## Hungarian Dance no5
 
 ```js
-var b = require('baudio')();
-var tune = require('tune');
+var b = require('baudio')(), tune = require('tune');
 
-var hungarian = tune('A5 . . . . D5 . F5 . . . . D5 . C#5 . . . . D5 E5 D5 . . . .'.split(' '), {
-  duration: 1/8
-});
+var hungarian = tune(String(
+  'A5 . . . . D5 . F5 . . . . D5 . C#5 . . . . D5 E5 D5 . . . . ' +
+  'Bb5 . . . . C5 . D5 . A5 . . . . G4 F4 E4 . . A5 D4 . . .'
+).split(' '), {tempo: 8});
 
-b.push(hungarian);
+b.push(function(t) { return hungarian(t); });
 b.play();
 ```
 
 ## Soundgarden - Black Hole Sun
 
 ```js
-var b = require('baudio')();
-var Tune = require('tune').Tune;
+var b = require('baudio')(), tune = require('tune');
 
-// soundgarden black hole sun :|
-b.push(new Tune(String(
+var blackholesun = tune(String(
   'A4 E4 A5 D5 A5 E4 A4 C4 E4 A5 D5 . . . ' +
   'G3 D4 G4 D5 G4 D4 E3 F#3 C#4 F#4 C#5 . . . ' +
   'E3 F3 C4 F4 A#5 F4 C4 F3 E3 D4 E4 B5 . . .'
-).split(' ')));
+).split(' '));
 
+b.push(function(t) {
+  // black hole sun + some fx
+  return blackholesun(t) + Math.sin(2 * Math.PI * t);
+});
 b.play();
 ```
 
 ## Final Fantasy Arpeggios
 
 ```js
-var b = require('baudio')();
-var tune = require('tune');
+var b = require('baudio')(), tune = require('tune');
 
-// final fantasy arpeggios
 var ff = [];
 [
   'C D E G',
@@ -65,8 +65,9 @@ var ff = [];
   }
   ff = ff.concat(arp.concat(arp.slice(0, -1).reverse()));
 });
+ff = tune(ff);
 
-b.push(tune(ff));
+b.push(function(t) { return ff(t); });
 b.play();
 ```
 
@@ -77,19 +78,21 @@ var tune = require('tune');
 ```
 
 ## var t = tune(notes[, options])
-Return a [baudio](http://github.com/substack/baudio)-compatible
-function using [plucky](http://github.com/substack/plucky) given an array of
-`notes`.
+Returns a function: `function(time)` that will return a value based on `time`
+between -1 and 1 to formulate a wave. Then you return the value within your
+[baudio](http://github.com/substack/baudio) function.
 
-Some example notes are: `C4`, `Db`, `E6`, `F#3`. The octave defaults to `4` and
-will be further set to whatever the last specified octave was. Mute notes are `.`.
+`notes` can be a single note string: `'A#5'` or an array of notes:
+`['C4', 'D5', 'E4', 'Gb7']`. Mark notes with sharps `#` and flats `b`. Then
+ending number refers to the octave. In a sequence if the octave isn't specified,
+it will use the last set octave or `4`. Use `.` for muted notes.
 
 `options` are:
-* `duration` [`1/4`] - duration of note
-* `repeat` [`true`] - if the tune should repeat
+* `tempo` [`4`] - how fast to transition through the notes
 * `volume` [`1.0`] - volume to play the tune: `0.0 - 1.0`
 
 ## Release History
+* 0.2.0 - `tune` just returns a function now.
 * 0.1.2 - Add mute notes.
 * 0.1.1 - Better API interface. Add volume option.
 * 0.1.0 - initial release

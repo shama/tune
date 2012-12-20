@@ -21,6 +21,7 @@ var ff = [];
   }
   ff = ff.concat(arp.concat(arp.slice(0, -1).reverse()));
 });
+ff = tune(ff);
 
-b.push(tune(ff));
+b.push(function(t) { return ff(t); });
 b.play();

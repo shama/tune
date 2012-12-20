@@ -43,7 +43,7 @@ b.play();
 
 ```js
 var b = require('baudio')();
-var tune = require('../lib/tune.js');
+var tune = require('tune');
 
 // final fantasy arpeggios
 var ff = [];

@@ -14,9 +14,9 @@ You also need to install SoX:
 ```js
 var b = require('baudio')(), tune = require('tune');
 
-var a5 = tune('A5');
+var a = tune('A');
 
-b.push(function(t) { return a5(t); });
+b.push(function(t) { return a(t); });
 b.play();
 ```
 

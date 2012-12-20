@@ -77,17 +77,17 @@ b.play();
 var tune = require('tune');
 ```
 
-## var t = tune(notes[, options])
-Returns a function: `function(time)` that will return a value based on `time`
-between -1 and 1 to formulate a wave. Then you return the value within your
-[baudio](http://github.com/substack/baudio) function.
+## var t = tune(notes)
+Returns a function: `function(time[, options])` that will return a value based
+on `time` between -1 and 1 to formulate a wave. Then you return the value within
+your [baudio](http://github.com/substack/baudio) function.
 
 `notes` can be a single note string: `'A#5'` or an array of notes:
 `['C4', 'D5', 'E4', 'Gb7']`. Mark notes with sharps `#` and flats `b`. Then
 ending number refers to the octave. In a sequence if the octave isn't specified,
 it will use the last set octave or `4`. Use `.` for muted notes.
 
-`options` are:
+`options` are an object literal `{}`:
 * `tempo` [`4`] - how fast to transition through the notes
 * `volume` [`1.0`] - volume to play the tune: `0.0 - 1.0`
 

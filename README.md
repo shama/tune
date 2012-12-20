@@ -9,6 +9,17 @@ You also need to install SoX:
 
 ## examples
 
+## Just a single note
+
+```js
+var b = require('baudio')(), tune = require('tune');
+
+var a5 = tune('A5');
+
+b.push(function(t) { return a5(t); });
+b.play();
+```
+
 ## Hungarian Dance no5
 
 ```js

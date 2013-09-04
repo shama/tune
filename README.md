@@ -1,6 +1,8 @@
 # tune
 Tune up [baudio](https://github.com/substack/baudio).
 
+![tune](http://dontkry.com/images/repos/tune.png)
+
 ## install
 Install tune and baudio: `npm install tune baudio`
 

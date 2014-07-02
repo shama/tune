@@ -111,5 +111,5 @@ it will use the last set octave or `4`. Use `.` for muted notes.
 * 0.1.0 - initial release
 
 ## License
-Copyright (c) 2012 Kyle Robinson Young  
+Copyright (c) 2014 Kyle Robinson Young
 Licensed under the MIT license.

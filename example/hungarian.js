@@ -1,4 +1,4 @@
-var b = require('baudio')();
+var baudio = require('baudio');
 var tune = require('../lib/tune.js');
 
 // hungarian dance no5 melody
@@ -7,6 +7,5 @@ var hungarian = tune(String(
   'Bb5 . . . . C5 . D5 . A5 . . . . G4 F4 E4 . . A5 D4 . . .'
 ).split(' '), {tempo: 8});
 
-b.push(function(t) { return hungarian(t); });
+var b = baudio(function(t) { return hungarian(t); });
 b.play();
-

@@ -1,4 +1,4 @@
-var b = require('baudio')();
+var baudio = require('baudio');
 var tune = require('../lib/tune.js');
 
 // final fantasy arpeggios
@@ -23,5 +23,5 @@ var ff = [];
 });
 ff = tune(ff);
 
-b.push(function(t) { return ff(t); });
+var b = baudio(function(t) { return ff(t); });
 b.play();

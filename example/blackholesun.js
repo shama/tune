@@ -1,4 +1,4 @@
-var b = require('baudio')();
+var baudio = require('baudio');
 var tune = require('../lib/tune.js');
 
 // soundgarden black hole sun :|
@@ -8,5 +8,5 @@ var blackholesun = tune(String(
   'E3 F3 C4 F4 A#5 F4 C4 F3 E3 D4 E4 B5 . . .'
 ).split(' '));
 
-b.push(function(t) { return blackholesun(t) + Math.sin(2 * Math.PI * t); });
+var b = baudio(function(t) { return blackholesun(t) + Math.sin(2 * Math.PI * t); });
 b.play();

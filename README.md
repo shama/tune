@@ -14,32 +14,32 @@ You also need to install SoX:
 ## Just a single note
 
 ```js
-var b = require('baudio')(), tune = require('tune');
+var baudio = require('baudio'), tune = require('tune');
 
 var a = tune('A');
 
-b.push(function(t) { return a(t); });
+var b = baudio(function(t) { return a(t); });
 b.play();
 ```
 
 ## Hungarian Dance no5
 
 ```js
-var b = require('baudio')(), tune = require('tune');
+var baudio = require('baudio'), tune = require('tune');
 
 var hungarian = tune(String(
   'A5 . . . . D5 . F5 . . . . D5 . C#5 . . . . D5 E5 D5 . . . . ' +
   'Bb5 . . . . C5 . D5 . A5 . . . . G4 F4 E4 . . A5 D4 . . .'
 ).split(' '), {tempo: 8});
 
-b.push(function(t) { return hungarian(t); });
+var b = baudio(function(t) { return hungarian(t); });
 b.play();
 ```
 
 ## Soundgarden - Black Hole Sun
 
 ```js
-var b = require('baudio')(), tune = require('tune');
+var baudio = require('baudio'), tune = require('tune');
 
 var blackholesun = tune(String(
   'A4 E4 A5 D5 A5 E4 A4 C4 E4 A5 D5 . . . ' +
@@ -47,7 +47,7 @@ var blackholesun = tune(String(
   'E3 F3 C4 F4 A#5 F4 C4 F3 E3 D4 E4 B5 . . .'
 ).split(' '));
 
-b.push(function(t) {
+var b = baudio(function(t) {
   // black hole sun + some fx
   return blackholesun(t) + Math.sin(2 * Math.PI * t);
 });
@@ -57,7 +57,7 @@ b.play();
 ## Final Fantasy Arpeggios
 
 ```js
-var b = require('baudio')(), tune = require('tune');
+var baudio = require('baudio'), tune = require('tune');
 
 var ff = [];
 [
@@ -80,7 +80,7 @@ var ff = [];
 });
 ff = tune(ff);
 
-b.push(function(t) { return ff(t); });
+var b = baudio(function(t) { return ff(t); });
 b.play();
 ```
 

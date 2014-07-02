@@ -105,11 +105,12 @@ it will use the last set octave or `4`. Use `.` for muted notes.
 * `volume` [`1.0`] - volume to play the tune: `0.0 - 1.0`
 
 ## Release History
+* 0.2.1 - Readme update.
 * 0.2.0 - `tune` just returns a function now.
 * 0.1.2 - Add mute notes.
 * 0.1.1 - Better API interface. Add volume option.
 * 0.1.0 - initial release
 
 ## License
-Copyright (c) 2014 Kyle Robinson Young
+Copyright (c) 2014 Kyle Robinson Young  
 Licensed under the MIT license.

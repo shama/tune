@@ -1,7 +1,7 @@
 {
   "name": "tune",
   "description": "Tune up baudio",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/shama/tune",
   "author": {
     "name": "Kyle Robinson Young",
@@ -31,7 +31,7 @@
   "dependencies": {},
   "devDependencies": {
     "baudio": "*",
-    "tap": "~0.3.3"
+    "tap": "~0.4.11"
   },
   "keywords": [
     "baudio",
